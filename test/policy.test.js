@@ -46,7 +46,7 @@ describe("Testing Policy routes", () =>
 			.set("Authorization", authorization)
 			.then(response =>
 			{
-				expect(response.statusCode).to.be.equal(200);
+				expect(response.statusCode).to.be.equal(404);
 				expect(response.type).to.equal("application/json");
 				expect(response.body.status).to.equal("error");
 				expect(response.body).to.be.a("object");
@@ -77,7 +77,7 @@ describe("Testing Policy routes", () =>
 			.set("Authorization", authorization)
 			.then(response =>
 			{
-				expect(response.statusCode).to.be.equal(200);
+				expect(response.statusCode).to.be.equal(404);
 				expect(response.type).to.equal("application/json");
 				expect(response.body.status).to.equal("error");
 				expect(response.body).to.be.a("object");

@@ -15,7 +15,7 @@ export default ({ClientController, PolicyController}) =>
                     let policies =  await PolicyController.getPolicyByUserName(req.params["userName"]);
 
                     if (!policies.length )
-                        return res.failure({message: "Policy not found"});
+                        return res.status(404).failure({message: "Policy not found"});
                     return res.success(policies);
                 })
         /** GET /api/policies/id/:policyId - Get policies */
@@ -30,7 +30,7 @@ export default ({ClientController, PolicyController}) =>
 
                     let policy =  await PolicyController.getPolicyById(req.params["policyId"]);
                     if (typeof policy === "undefined")
-                        return res.failure({message: "Policy not found"});
+                        return res.status(404).failure({message: "Policy not found"});
                     return res.success(policy);
                 })
         return policyRoutes;

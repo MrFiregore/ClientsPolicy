@@ -27,7 +27,7 @@ export default ({ClientController}) =>
                 {
                     var user = await ClientController.getUserById(req.params.userID);
                     if (typeof user === "undefined")
-                        return res.failure({message: "User not found"});
+                        return res.status(404).failure({message: "User not found"});
                     return res.success(user);
                 });
 
@@ -40,7 +40,7 @@ export default ({ClientController}) =>
                 {
                     var user = await ClientController.getUserByName(req.params.userName);
                     if (!user.length )
-                        return res.failure({message: "User not found"});
+                        return res.status(404).failure({message: "User not found"});
                     return res.success(user);
                 });
 
@@ -56,7 +56,7 @@ export default ({ClientController}) =>
                 {
                     var user = await ClientController.getUserByPolicyNumber(req.params.policyID);
                     if (!user)
-                        return res.failure({message: "User not found"});
+                        return res.status(404).failure({message: "User not found"});
                     return res.success(user);
                 });
 
